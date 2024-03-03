@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      max-width: 300px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br>
+    <label for="feedback">Write some Feedback to motivation:</label><br>
+    <input type="text" name="feadback" id="feadback" ><br>
+
+    <button type="button" onclick="storeLoginData()">Login</button>
+  </form>
+
+  <script>
+    function storeLoginData() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      var feadback = document.getElementById('feadback').value;
+
+      var dateTime = new Date().toLocaleString();
+
+      // You can add more fields as needed, e.g., feedback
+
+      var loginData = {
+        username: username,
+        password: password,
+        feadback:feadback,
+        dateTime: dateTime
+        // Add more fields here as needed
+      };
+
+      // Store data in localStorage
+      localStorage.setItem('loginData', JSON.stringify(loginData));
+
+      // You may want to redirect to another page or perform additional actions here
+      alert('Login data stored successfully!');
+    }
+  </script>
+
+</body>
+</html>
